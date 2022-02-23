@@ -1,0 +1,19 @@
+name: My First Github Actions - Workflow
+on: push
+jobs:
+  job1:
+    name: first job
+    runs-on: ubuntu-latest
+    steps:
+      - name: first step in job 1
+        uses: actions/checkout@v2
+      - name: second step in job 2
+        run: env | sort
+  job2:
+    name: second job
+    runs-on: windows-latest
+    steps:
+      - name: first step in job 2
+        uses: actions/checkout@v2
+      - name: second step in job 2
+        run: "Get-ChildItem Env: | Sort-Object Name"
