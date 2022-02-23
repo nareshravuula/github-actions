@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print date in job1
-        run: date
+        run: echo "This is date on Linux machine:" + date
   job2:
     name: second job
     runs-on: windows-latest
