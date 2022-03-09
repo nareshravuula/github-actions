@@ -1,3 +1,3 @@
-# Build Status Badge: ![](https://github.com/nareshravuula/github-actions/workflows/first/badge.svg)
+# Build Status Badge: ![](https://github.com/nareshravuula/github-actions/workflows/artifacts/badge.svg)
 
 # github-actions
