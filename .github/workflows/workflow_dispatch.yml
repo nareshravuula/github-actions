@@ -23,4 +23,4 @@ jobs:
         run: |
           echo "Deploying to environment: ${{ github.event.inputs.environment }}"
           echo "Deploying version: ${{ github.event.inputs.deploy_version }}"
-          echo "All variables: ${{ toJSON(vars) }}"
+          echo "All variables: ${{ toJSON(github.event) }}"
