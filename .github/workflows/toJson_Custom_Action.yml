@@ -1,0 +1,31 @@
+name: Convert Comma-Separated Strings to JSON
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_strings:
+        description: 'Comma-separated strings to convert to JSON'
+        required: true
+
+jobs:
+  convert_to_json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Parse input and convert to JSON
+        id: convert-to-json
+        run: |
+          # Extract input comma-separated strings
+          INPUT_STRINGS="${{ github.event.inputs.input_strings }}"
+
+          # Convert comma-separated strings to JSON array
+          JSON_ARRAY="[ $(echo "$INPUT_STRINGS" | sed 's/,/","/g' | sed 's/^/"/' | sed 's/$/"/') ]"
+
+          # Set JSON array as an output
+          echo "::set-output name=json_string::${JSON_ARRAY}"
+
+      - name: Display JSON string
+        run: |
+          echo "Input strings: ${{ github.event.inputs.input_strings }}"
+          echo "JSON string output:"
+          echo "${{ steps.convert-to-json.outputs.json_string }}"
